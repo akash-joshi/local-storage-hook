@@ -1,23 +1,44 @@
 {
-  "parser": "babel-eslint",
   "extends": [
-    "standard",
-    "standard-react"
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react"
   ],
+  "parser": "babel-eslint",
   "env": {
-    "es6": true
-  },
-  "plugins": [
-    "react"
-  ],
-  "parserOptions": {
-    "sourceType": "module"
+    "browser": true,
+    "node": true
   },
   "rules": {
-    // don't force es6 functions to include space before paren
-    "space-before-function-paren": 0,
-
-    // allow specifying true explicitly for boolean props
-    "react/jsx-boolean-value": 0
-  }
+    "react/prop-types":"off",
+    "react/no-unescaped-entities":"off",
+    "global-require":"off",
+    "jsx-a11y/label-has-for":"off",
+    "jsx-a11y/anchor-is-valid":"off",
+    "prefer-spread":"off",
+    "jsx-a11y/accessible-emoji":"off",
+    "no-alert":"off",
+    "react/react-in-jsx-scope": "off",
+    "consistent-return": "off",
+    "no-console": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 100
+      }
+    ]
+  },
+  "plugins": [
+    "prettier"
+  ]
 }

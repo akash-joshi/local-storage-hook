@@ -7,22 +7,32 @@
 ## Install
 
 ```bash
-npm install --save local-storage-hook
+npm add local-storage-hook
+```
+
+## Signature
+
+```jsx
+const [localState, setLocalState] = useLocalStorage(key, defaultValue);
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
 
-import MyComponent from 'local-storage-hook'
+import useLocalStorage from 'local-storage-hook'
 
-class Example extends Component {
-  render () {
-    return (
-      <MyComponent />
-    )
-  }
+export default () => {
+  
+  // const [localState, setLocalState] = useLocalStorage(key, defaultValue);
+  const [login, setLogin] = useLocalStorage("login", false);
+
+  return (
+    <div>
+      Hello
+    </div>
+  );
 }
 ```
 

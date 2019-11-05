@@ -1,22 +1,17 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState, useEffect } from "react";
 
-import styles from './styles.css'
+export default (key, initialState) => {
+  const [state, setState] = useState(initialState);
 
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
-  }
+  useEffect(() => {
+    if (document.localStorage.getItem(key))
+      setState(JSON.parse(document.localStorage.getItem(key)));
+  }, []);
 
-  render() {
-    const {
-      text
-    } = this.props
+  const returnedNewState = newState => {
+    setState(newState);
+    document.localStorage.setItem(key, JSON.stringify(newState));
+  };
 
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
-  }
-}
+  return [state, returnedNewState];
+};
