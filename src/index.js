@@ -4,8 +4,8 @@ export default function useLocalStorage(key, initialState) {
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
-    if (document.localStorage.getItem(key)) {
-      let gottenItem = document.localStorage.getItem(key);
+    if (localStorage.getItem(key)) {
+      let gottenItem = localStorage.getItem(key);
       let nextState = gottenItem;
       try {
         nextState = JSON.parse(gottenItem);
@@ -18,7 +18,7 @@ export default function useLocalStorage(key, initialState) {
 
   const returnedNewState = newState => {
     setState(newState);
-    document.localStorage.setItem(key, JSON.stringify(newState));
+    localStorage.setItem(key, JSON.stringify(newState));
   };
 
   return [state, returnedNewState];
